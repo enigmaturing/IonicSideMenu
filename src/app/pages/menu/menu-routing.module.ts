@@ -6,7 +6,17 @@ import { MenuPage } from './menu.page';
 const routes: Routes = [
   {
     path: '',
-    component: MenuPage
+    component: MenuPage,
+    children: [
+      {
+        path: 'first',
+        loadChildren: () => import('../first/first.module').then( m => m.FirstPageModule)
+      },
+      {
+        path: 'second',
+        loadChildren: () => import('../second/second.module').then( m => m.SecondPageModule)
+      },
+    ]
   }
 ];
 
